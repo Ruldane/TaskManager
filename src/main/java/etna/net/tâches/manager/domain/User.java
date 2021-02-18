@@ -1,6 +1,10 @@
 package etna.net.tâches.manager.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -28,7 +32,11 @@ public class User implements UserDetails {
     private String password;
     @Transient
     private String confirmPassword;
+    @CreatedDate
+    @CreationTimestamp
     private Date create_At;
+    @LastModifiedDate
+    @UpdateTimestamp
     private Date update_At;
 
     //OneToMany with Project

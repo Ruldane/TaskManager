@@ -18,13 +18,13 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Email(message = "Username needs to be an email")
-    @NotBlank(message = "username is required")
+    @Email(message = "Le nom doit être un email")
+    @NotBlank(message = "Le nom est obligatoire")
     @Column(unique = true)
     private String username;
-    @NotBlank(message = "Please enter your full name")
+    @NotBlank(message = "Merci d'entrer un nom complet")
     private String fullName;
-    @NotBlank(message = "Password field is required")
+    @NotBlank(message = "Le mot de passe est obligatoire")
     private String password;
     @Transient
     private String confirmPassword;

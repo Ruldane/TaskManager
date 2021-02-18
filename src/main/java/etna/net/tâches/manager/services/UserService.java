@@ -30,7 +30,7 @@ public class UserService {
             return userRepository.save(newUser);
 
         }catch (Exception e){
-            throw new UsernameAlreadyExistsException("Username '"+newUser.getUsername()+"' already exists");
+            throw new UsernameAlreadyExistsException("Username '"+newUser.getUsername()+"' existe déjà");
         }
 
     }

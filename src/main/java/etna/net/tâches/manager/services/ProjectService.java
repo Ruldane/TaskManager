@@ -28,9 +28,9 @@ public class ProjectService {
         if(project.getId() != null){
             Project existingProject = projectRepository.findByProjectIdentifier(project.getProjectIdentifier());
             if(existingProject !=null &&(!existingProject.getProjectLeader().equals(username))){
-                throw new ProjectNotFoundException("Project not found in your account");
+                throw new ProjectNotFoundException("Projet non trouvé sur votre compte");
             }else if(existingProject == null){
-                throw new ProjectNotFoundException("Project with ID: '"+project.getProjectIdentifier()+"' cannot be updated because it doesn't exist");
+                throw new ProjectNotFoundException("Projet ID: '"+project.getProjectIdentifier()+"' ne peut pas être update car il n'existe pas");
             }
         }
 
@@ -55,7 +55,7 @@ public class ProjectService {
             return projectRepository.save(project);
 
         }catch (Exception e){
-            throw new ProjectIdException("Project ID '"+project.getProjectIdentifier().toUpperCase()+"' already exists");
+            throw new ProjectIdException("Projet ID '"+project.getProjectIdentifier().toUpperCase()+"' existe déjà");
         }
 
     }
@@ -68,12 +68,12 @@ public class ProjectService {
         Project project = projectRepository.findByProjectIdentifier(projectId.toUpperCase());
 
         if(project == null){
-            throw new ProjectIdException("Project ID '"+projectId+"' does not exist");
+            throw new ProjectIdException("Projet ID '"+projectId+"' n'existe pas");
 
         }
 
         if(!project.getProjectLeader().equals(username)){
-            throw new ProjectNotFoundException("Project not found in your account");
+            throw new ProjectNotFoundException("Projet  non trouvé sur votre compte");
         }
 
 
